@@ -1,0 +1,53 @@
+import random
+
+movies = {'The Godfather': 10, 'Super 30': 8, 'Star Wars: Episode IV - A New Hope': 6}
+seats = 50
+price = 10
+
+
+
+
+          CHATBOT python3
+
+
+
+
+def greeting():
+    print("Hello! Welcome to our movie ticket booking system.")
+    
+def get_movie():
+    print("What movie would you like to see?")
+    for movie in movies:
+        print(movie)
+    movie_choice = input().title()
+    if movie_choice in movies:
+        return movie_choice
+    else:
+        print("Sorry, we don't have that movie.")
+        return get_movie()
+
+def get_tickets(movie):
+    print(f"How many tickets do you want for {movie}?")
+    num_tickets = input()
+    if num_tickets.isnumeric():
+        if int(num_tickets) > 0 and int(num_tickets) <= seats:
+            return int(num_tickets)
+        else:
+            print("Sorry, we don't have that many seats available.")
+            return get_tickets(movie)
+    else:
+        print("Sorry, please enter a valid number.")
+        return get_tickets(movie)
+
+def confirm_booking(movie, num_tickets):
+    total_price = price * num_tickets
+    print(f"You have booked {num_tickets} tickets for {movie} for a total price of ${total_price}.")
+    confirmation_number = random.randint(1000, 9999)
+    print(f"Your confirmation number is {confirmation_number}. Please keep it safe.")
+    return confirmation_number
+
+greeting()
+movie = get_movie()
+num_tickets = get_tickets(movie)
+confirmation_number = confirm_booking(movie, num_tickets)
+

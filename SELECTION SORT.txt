@@ -1,0 +1,45 @@
+
+
+              SELECTION SORT
+
+
+
+#include <iostream>
+using namespace std;
+void Selectionsort(int arr[], int n)
+{
+int i, j, min;
+for(i=0; i<n-1; i++)
+{
+min=i;
+for(j=i+1; j<n; j++){
+if(arr[j] < arr[min]){
+min=j;
+
+}
+}
+int temp = arr[min];
+arr[min] = arr[i];
+arr[i] = temp;
+}
+}
+int main()
+{
+int n,i;
+cout<<"Enter the no of elements : "<<endl;
+cin>>n;
+int arr[n];
+cout<<"Enter the elements:- "<<endl;
+for(i=0; i<n; i++){
+cout<<i+1<<") ";
+cin>>arr[i];
+}
+Selectionsort(arr, n);
+cout<<"\nAfter sorting elements are - "<<endl;
+cout<<"In ascending order"<<endl;
+for(i=0; i<n; i++){
+cout<<i+1<<") ";
+cout<<arr[i] <<" "<<endl;
+}
+return 0;
+}
